@@ -25,7 +25,7 @@ const SinglePostPage = () => {
             <p>{post.body}</p>
             <p className="postCredit">
                 <button className='Btn2'>
-                    <Link to={`/post/edit/${post.id}`} style={{ textDecoration: 'none' }}>Edit Post</Link>
+                    <Link to={`/edit/${post.id}`} style={{ textDecoration: 'none' }}>Edit Post</Link>
                 </button>
                 <PostAuthor userId={post.userId} />
                 <TimeAgo timestamp={post.date} />

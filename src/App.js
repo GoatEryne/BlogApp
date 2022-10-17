@@ -15,22 +15,18 @@ import SinglePostPage from './features/posts/SinglePostPage'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" component={<Header />}>
-
-        <Route exact path='/' component={<PostsList />} />
-
-        <Route path="/post">
-          <Route path="add/" component={<AddPostForm />} />
-          <Route path="view/:postId" component={<SinglePostPage />} />
-          <Route path="edit/:postId" component={<EditPostForm />} />
+    <>
+      <Header />
+      <Routes>
+        <Route path='/' element={<PostsList />} />
+        <Route path="">
+          <Route path="add" element={<AddPostForm />} />
+          <Route path="/view/:postId" element={<SinglePostPage />} />
+          <Route path="/edit/:postId" element={<EditPostForm />} />
         </Route>
-
-        <Route path="/" component={<Navigate to="/" />} />
-
-      </Route>
-    </Routes>
-
+        <Route path="/" element={<Navigate to="/" />} />
+      </Routes>
+    </>
   );
 }
 

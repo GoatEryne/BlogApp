@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { postUpdated, selectPostById } from '../postsSlice'
 
-const EditPostForm = ({ match }) => {
-    const { postId } = match.params
+const EditPostForm = () => {
+    const { postId } = useParams();
 
     const post = useSelector((state) => selectPostById(state, postId))
 
@@ -21,7 +21,7 @@ const EditPostForm = ({ match }) => {
     const onSavePostClicked = () => {
         if (title && body) {
             dispatch(postUpdated({ id: postId, title, body }))
-            history.push(`/posts/${postId}`)
+            history.push(`/edit/${postId}`)
         }
     }
 
